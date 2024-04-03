@@ -9,27 +9,33 @@
 </head>
 <body>
     <header>
-        <button class="first">somethin cool</button>
+        <h1>Welcome to the Blog</h1>
+        <button class="first" id="darkMode">🌙</button>
         <button class="second">somethin crazy</button>
         <button class="third">somethin simple</button>
     </header>
     <main>
-        <section>
+        <aside>
             <h2>What are you thinking?</h2>
-            <label name='Username' for="Username"></label>
-                <input id= "Username" type="text">
+           <!-- <div>
+                <img class="photo" src="./assets/images/image.png" alt="blog picture of a guy on a post" class="blog-image"/>
+            </div>-->
+        </aside>
+            <section>
+                <form>
+                    <label for="Username">Username</label>
+                        <input name='Username' id= "Username" type="text"/>
 
-            <label name='Title' for="title"></label>
-                <input id= "title" type="text">
+                    <label for="title">Title</label>
+                        <input name='Title' id= "title" type="text"/>
 
-            <label name='Content' for="content"></label>
-                <input id= "content" type="text">
-            <button class="submit">submit</button>
-
+                    <label for="content">Content</label>
+                        <textarea name='Content' id= "content" type="text" rows="5"></textarea>
+                        <p id="error">&nbsp;</p>
+                    <input type="submit" value="Submit"/>
+                </form>
         </section>
-
-        <img src="assets/images/mypic.jpg" alt="blog picture of a guy on a post" class="blog-image"/>
-
+        
     </main>
 
 
