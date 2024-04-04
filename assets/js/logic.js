@@ -1,16 +1,57 @@
-const lightModeDarkMode = document.getElementById("darkMode")
+const lightModeDarkMode = document.getElementById(".toggle")
 
-function findMode(){
-    const mode = localStorage.getItem("mode") || "darkMode"
+
+const findMode = function(){
+    const mode = localStorage.getItem("mode") || "darkMode";
+    return mode;
 }
 
-lightModeDarkMode.addEventListener("click", function(){
-    let newMode
+const readLocalStorage = function(){
+    const stringData = localStorage.getItem("blogs");
 
-    if (mode === "darkMode"){
-        let newMode = "lightMode";
-    } 
-    else( mode === "lightMode"){
-        let newMode = "darkMode"
+    const data = JSON.parse(stringData);
+
+    return data || [];
+}
+
+const applyMode = function(mode){
+    let icon, circleColor;
+
+    console.log(mode);
+
+    if(mode === "lightMode") {
+        icon = "*";
+        circleColor = "#blue";
     }
-});
+    else {
+        icon ="🌙";
+        circleColor = "#white";
+    }
+
+    lightModeDarkMode.textContent = icon,
+    document.body.classList = mode,
+    document.documentElement.style.setProperty("--accent-color", accentColor)
+}
+
+const saveMode = function(mode){
+    localStorage.setItem("mode", mode);
+}
+
+const toggleTheme = function(){
+    
+    const mode = readLocalStorage();
+    let newMode;
+
+    if (mode === "lightMode"){
+         newMode = "darkMode";
+    } 
+    else {
+         newMode = "lightMode"
+    }
+    applyMode(newMode);
+
+    saveMode(newMode);
+}
+applyMode(readLocalStorage());
+
+lightModeDarkMode.addEventListener("click", toggleTheme);
